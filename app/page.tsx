@@ -1,4 +1,5 @@
 import { supabase } from "../lib/supabase"
+import Link from "next/link"
 
 type Vaga = {
   id: number
@@ -28,14 +29,12 @@ export default async function Home() {
             </h2>
             <p>{vaga.empresa} - {vaga.cidade}</p>
 
-            <a
-              href={vaga.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Candidatar-se
-            </a>
+          <Link
+            href={`/vaga/${vaga.id}`}
+            className="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Ver Detalhes
+        </Link>
           </div>
         ))}
       </div>
